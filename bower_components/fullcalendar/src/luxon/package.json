@@ -1,0 +1,7 @@
+{
+  "title": "FullCalendar Luxon Plugin",
+  "browserGlobal": "FullCalendarLuxon",
+  "peerDependencies": {
+    "luxon": ""
+  }
+}

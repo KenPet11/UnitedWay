@@ -9,14 +9,32 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.css' %}">
   <title>United Way Portal</title>
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">United Way Volunteer Portal</a>
+  <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarColor01" aria-label="Toggle navigation" type="button" data-target="#navbarColor01" data-toggle="collapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <h1 class="title">{% block title %}{% endblock %}</h1>
-  <hr>
+  <div class="collapse navbar-collapse" id="navbarColor01" >
+    <ul class="navbar-nav ml-auto" >
+      <li class="nav-item" >
+        <a class="nav-link" href="#">Admin Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <h1 class="display-3">Welcome to the United Way Calendar of Events!</h1>
+  <p class="lead">Please see the calander below for to find more information about an event near you. You can sign up to help at the event, and even add that event to your calendar!</p>
+  <hr class="my-4">
+  <p>Need Volunteers? Look for the "Create New Event" button to have your event reviewed by a United Way Coordinator and get it added to the calendar!</p>
+</div>
 
   {% block content %}
   {% endblock %}

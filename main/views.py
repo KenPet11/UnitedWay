@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, date
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic.list import ListView
+from django.views import generic
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 import calendar
@@ -10,7 +10,11 @@ from .utils import Calendar
 from .forms import EventForm
 # Create your views here.
 
-class CalendarView(ListView):
+
+def index(request):
+    return HttpResponse('hello')
+
+class CalendarView(generic.ListView):
     model = Event
     template_name = 'main/calendar.html'
 
@@ -28,6 +32,7 @@ class CalendarView(ListView):
         context['calendar'] = mark_safe(html_cal)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
+        print(context)
         return context
 
 def get_date(req_day):

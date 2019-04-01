@@ -1,0 +1,7 @@
+{
+  "title": "FullCalendar RRule Plugin",
+  "browserGlobal": "FullCalendarRrule",
+  "peerDependencies": {
+    "rrule": ""
+  }
+}

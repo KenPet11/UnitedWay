@@ -1,0 +1,7 @@
+{
+  "title": "FullCalendar Moment Plugin",
+  "browserGlobal": "FullCalendarMoment",
+  "peerDependencies": {
+    "moment": ""
+  }
+}
