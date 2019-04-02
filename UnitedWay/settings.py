@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'schedule',
-    'djangobower',
 ]
 
 MIDDLEWARE = [
@@ -121,22 +119,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-STATICFILES_FINDERS = (
-
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
-    'djangobower.finders.BowerFinder',
-
-)
-
-
-BOWER_INSTALLED_APPS = (
-    'jquery',
-    'jquery-ui',
-    'bootstrap',
-    'fullcalendar'
-)

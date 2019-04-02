@@ -1,7 +1,0 @@
-{
-  "title": "FullCalendar Time Grid Plugin",
-  "browserGlobal": "FullCalendarTimeGrid",
-  "dependencies": {
-    "@fullcalendar/daygrid": ""
-  }
-}

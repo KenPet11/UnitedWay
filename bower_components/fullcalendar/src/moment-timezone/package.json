@@ -1,8 +1,0 @@
-{
-  "title": "FullCalendar Moment Timezone Plugin",
-  "browserGlobal": "FullCalendarMomentTimezone",
-  "peerDependencies": {
-    "moment": "",
-    "moment-timezone": ""
-  }
-}
