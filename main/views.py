@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta, date
+from time import time
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic.list import ListView
+from django.views import generic
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 import calendar
@@ -10,7 +11,32 @@ from .utils import Calendar
 from .forms import EventForm
 # Create your views here.
 
-class CalendarView(ListView):
+curr_date = datetime.today()
+
+def get_state_date(state):
+    global curr_date
+    d = curr_date
+    if state == 'PREV':
+        da = str(d).split()[0].split('-')
+        da[1] = '0' + str(int(da[1])-1)
+        da = "-".join(str(x) for x in da)
+        d = datetime.strptime(da, '%Y-%m-%d')
+        curr_date = d
+        return curr_date
+    elif state == 'NEXT':
+        da = str(d).split()[0].split('-')
+        da[1] = '0' + str(int(da[1])+1)
+        da = "-".join(str(x) for x in da)
+        d = datetime.strptime(da, '%Y-%m-%d')
+        curr_date = d
+        return curr_date
+    else:
+        return curr_date
+
+def index(request):
+    return HttpResponse('hello')
+
+class CalendarView(generic.ListView):
     model = Event
     template_name = 'main/calendar.html'
 
@@ -21,6 +47,48 @@ class CalendarView(ListView):
         d = get_date(self.request.GET.get('day', None))
 
         # Instantiate our calendar class with today's year and date
+        cal = Calendar(d.year, d.month)
+
+        # Call the formatmonth method, which returns our calendar as a table
+        html_cal = cal.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_cal)
+        context['prev_month'] = prev_month(d)
+        context['next_month'] = next_month(d)
+        return context
+
+class CalendarNextView(generic.ListView):
+    model = Event
+    template_name = 'main/calendar_next.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # use today's date for the calendar
+        #d = get_date(self.request.GET.get('day', None))
+
+        # Instantiate our calendar class with today's year and date
+        d = get_state_date('NEXT')
+        cal = Calendar(d.year, d.month)
+
+        # Call the formatmonth method, which returns our calendar as a table
+        html_cal = cal.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_cal)
+        context['prev_month'] = prev_month(d)
+        context['next_month'] = next_month(d)
+        return context
+
+class CalendarPrevView(generic.ListView):
+    model = Event
+    template_name = 'main/calendar_prev.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # use today's date for the calendar
+        #d = get_date(self.request.GET.get('day', None))
+
+        # Instantiate our calendar class with today's year and date
+        d = get_state_date('PREV')
         cal = Calendar(d.year, d.month)
 
         # Call the formatmonth method, which returns our calendar as a table

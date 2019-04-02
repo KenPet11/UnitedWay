@@ -19,16 +19,20 @@ from . import views
 
 app_name = "main"
 
-"""urlpatterns = [
+urlpatterns = [
+	path("", views.CalendarView.as_view(), name='calendar'),
     url(r'^index/$', views.index, name='index'),
     url(r'^calendar/$', views.CalendarView.as_view(), name='calendar'),
+    url(r'^calendar/next/$', views.CalendarNextView.as_view(), name='calendar_next'),
+    url(r'^calendar/prev/$', views.CalendarPrevView.as_view(), name='calendar_prev'),
     url(r'^event/new/$', views.event, name='event_new'),
-		url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
+	url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
 
-]"""
+]
 
-urlpatterns = [
+"""urlpatterns = [
     path("", views.CalendarView.as_view(), name='calendar'),
     path("event/new/", views.event, name='event_new'),
-		path("event/edit/", views.event, name='event_edit'),
+	path("event/edit/", views.event, name='event_edit'),
 ]
+"""
