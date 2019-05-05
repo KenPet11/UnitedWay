@@ -4,7 +4,7 @@
 <div class="clearfix">
 	<a class="btn btn-primary btn-lg" role="button" style="float: left" href="{% url 'main:calendar_prev' %}?{{ prev_month }}"> Previous Month </a>
 	<a class="btn btn-primary btn-lg" role="button" style="float: right" href="{% url 'main:calendar_next' %}?{{ next_month }}"> Next Month </a>
-	<a class="btn btn-primary btn-lg" role="button" style="float: right"  href="{% url 'main:event_new' %}"> Create New Event </a>
+	<a class="btn btn-primary btn-lg" role="button" style="float: right; margin-right: 20px"  href="{% url 'main:event_new' %}"> Create New Event </a>
 </div>
 
 {{ calendar }}

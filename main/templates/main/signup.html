@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Event
+Event Signup
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,15 @@ Event
   {% csrf_token %}
   <table class="form form-table">
     {{ form }}
-    <tr><td colspan="2"><button type="submit" class="btn btn-primary btn-lg" role="button" style="float: right"> Submit </button></td></tr>
+    <tr><td colspan="2">        
+        <div class="form-check">
+            <label style="float: right; padding: 20px" class="form-check-label"><input class="form-check-input" type="checkbox" checked="" value="">Add event to your calendar?</label>
+        </div>
+    </td></tr>
+    <tr><td colspan="2">
+        <button type="submit" class="btn btn-primary btn-lg" role="button" style="float: right"> Submit </button>
+    </td></tr>
   </table>
 </form>
+
 {% endblock %}

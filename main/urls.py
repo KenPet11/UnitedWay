@@ -27,12 +27,6 @@ urlpatterns = [
     url(r'^calendar/prev/$', views.CalendarPrevView.as_view(), name='calendar_prev'),
     url(r'^event/new/$', views.event, name='event_new'),
 	url(r'^event/edit/(?P<event_id>\d+)/$', views.event, name='event_edit'),
+    url(r'^event/signup/(?P<event_id>\d+)/$', views.signup, name='event_signup'),
 
 ]
-
-"""urlpatterns = [
-    path("", views.CalendarView.as_view(), name='calendar'),
-    path("event/new/", views.event, name='event_new'),
-	path("event/edit/", views.event, name='event_edit'),
-]
-"""
