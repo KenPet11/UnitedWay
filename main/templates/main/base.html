@@ -7,9 +7,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrapJournal.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
   <title>United Way Portal</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01" >
     <ul class="navbar-nav ml-auto" >
       <li class="nav-item" >
-        <a class="nav-link" href="#">Admin Login</a>
+        <a class="nav-link" href="{% url 'admin:index' %}">Admin Login</a>
       </li>
     </ul>
   </div>
@@ -31,9 +31,9 @@
 
 <div class="jumbotron">
   <h1 class="display-3">Welcome to the United Way Calendar of Events!</h1>
-  <p class="lead">Please see the calander below for to find more information about an event near you. You can sign up to help at the event, and even add that event to your calendar!</p>
+  <p class="lead">Please see the calander below for to find more information about an event near you. You can sign up to help at the event!</p>
   <hr class="my-4">
-  <p>Need Volunteers? Look for the "Create New Event" button to have your event reviewed by a United Way Coordinator and get it added to the calendar!</p>
+  <p>Need Volunteers? Look for the "Create New Event" button to get your event added to the calendar!</p>
 </div>
 
   {% block content %}
@@ -43,6 +43,7 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"

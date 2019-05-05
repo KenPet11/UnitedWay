@@ -9,6 +9,7 @@ import calendar
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
+from .forms import SignupForm
 # Create your views here.
 
 curr_date = datetime.today()
@@ -129,3 +130,25 @@ def event(request, event_id=None):
         form.save()
         return HttpResponseRedirect(reverse('main:calendar'))
     return render(request, 'main/event.html', {'form': form})
+
+def signup(request, event_id=None):
+    instance = Signup()
+    if event_id:
+        event = get_object_or_404(Event, pk=event_id)
+        instance = Signup(event_name=event.event_title,e_description = event.event_description, 
+            e_start_time = event.event_start_time,
+            e_end_time = event.event_end_time,
+            e_location = event.event_location,
+            e_coordinator = event.event_coordinator,
+            e_organization = event.event_organization,
+            e_contact_email = event.event_contact_email,
+            e_contact_phone = event.event_contact_phone,
+            e_link = event.event_link)
+    else:
+        instance = Signup()
+        
+    form = SignupForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('main:calendar'))
+    return render(request, 'main/signup.html', {'form': form})
